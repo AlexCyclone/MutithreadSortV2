@@ -35,7 +35,6 @@ public class ThreadKSort implements Runnable {
                 }
                 array[i + k[ki]] = temp;
             }
-
         }
     }
 }
