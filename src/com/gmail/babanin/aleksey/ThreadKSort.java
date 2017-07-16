@@ -25,14 +25,17 @@ public class ThreadKSort implements Runnable {
 
     @Override
     public void run() {
-        for (int i = k[ki] + thread; i < array.length; i += threads) {
-            int j = i;
-            int temp = array[i];
-            while ((j >= k[ki]) && (array[j - k[ki]] > temp)) {
-                array[j] = array[j - k[ki]];
-                j -= k[ki];
+        for (int t = thread; t < k[ki]; t += threads) {
+            for (int j = t + k[ki]; j < array.length; j += k[ki]) {
+                int temp = array[j];
+                int i = j - k[ki];
+                while (i >= 0 && array[i] > temp) {
+                    array[i + k[ki]] = array[i];
+                    i -= k[ki];
+                }
+                array[i + k[ki]] = temp;
             }
-            array[j] = temp;
+
         }
     }
 }

@@ -16,7 +16,7 @@ public class MultiThreadSorting {
 
         try {
             while (ki >= 0) {
-                if (k[ki] <= threads) {
+                if (k[ki] < threads) {
                     threads = k[ki];
                 }
                 for (int thread = 0; thread < threads; thread += 1) {
@@ -25,6 +25,7 @@ public class MultiThreadSorting {
                 for (int thread = 0; thread < threads; thread += 1) {
                     kSort[thread].getThr().join();
                 }
+
                 ki -= 1;
             }
         } catch (InterruptedException e) {
