@@ -24,15 +24,12 @@ public class Main {
         tstart = System.currentTimeMillis();
         MultiThreadSorting.sort(array3, Runtime.getRuntime().availableProcessors());
         tend = System.currentTimeMillis();
-        System.out.println((tend - tstart) + " ms" + " - MultiThread sort. Correct " + Arrays.equals(array, array2));
+        System.out.println((tend - tstart) + " ms" + " - MultiThread sort. Correct " + Arrays.equals(array, array3));
         
         tstart = System.currentTimeMillis();
         MultiThreadSorting.sort(array2, 1);
         tend = System.currentTimeMillis();
         System.out.println((tend - tstart) + " ms" + " - Static method sort. Correct " + Arrays.equals(array, array2));
-        
-        
-        
     }
 
 }
